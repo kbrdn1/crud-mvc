@@ -14,11 +14,6 @@ class Model
         }
     }
 
-    private function close()
-    {
-        return null;
-    }
-
     public function view()
     {
         // On démarre une session
@@ -36,9 +31,7 @@ class Model
         $query->execute();
 
         // On stocke le résultat dans un tableau assossiatif
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        $db = $this->close();
+        return $result = $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
