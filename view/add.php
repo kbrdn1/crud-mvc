@@ -1,38 +1,4 @@
-<?php
-// On démarre uune session
-session_start();
 
-if ($_POST) {
-    if (isset($_POST["produit"]) && !empty($_POST["produit"]) && isset($_POST["prix"]) && !empty($_POST["prix"]) && isset($_POST["nombre"]) && !empty($_POST["nombre"])) {
-
-        // On inclut la connexion à la base
-        require_once('connect.php');
-
-        // On nettoie les données
-        $produit = strip_tags($_POST['produit']);
-        $prix = strip_tags($_POST['prix']);
-        $nombre = strip_tags($_POST['nombre']);
-
-        $sql = 'INSERT INTO `produit` (`produit`, `prix`, `nombre`) VALUES (:produit, :prix, :nombre);';
-
-        $query = $db->prepare($sql);
-
-        $query->bindValue(':produit', $produit, PDO::PARAM_STR);
-        $query->bindValue(':prix', strval($prix), PDO::PARAM_STR);
-        $query->bindValue(':nombre', $nombre, PDO::PARAM_INT);
-
-        $query->execute();
-
-        $_SESSION['message'] = "Produit Ajouté";
-
-        require_once('close.php');
-
-        header('Location: index.php');
-    } else {
-        $_SESSION['error'] = "Le formulaire est incomplet";
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -64,7 +30,7 @@ if ($_POST) {
                 <input class="col-2 rounded" type="number" id="nombre" name="nombre" placeholder="Quantité">
                 <input class="col-2 btn-success rounded-pill" type="submit" name="send" value="Envoyer">
             </form>
-            <a href="index"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
+            <a href="/php/produit/index.php"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
         </div>
     </div>
 
