@@ -1,23 +1,3 @@
-<?php
-// On démarre uune session
-session_start();
-
-// On inclut la connexion à la base
-require_once('connect.php');
-
-$sql = 'SELECT * FROM `produit`';
-
-// On prépare la requête
-$query = $db->prepare($sql);
-
-// On exéte la requête
-$query->execute();
-
-// On stocke le résultat dans un tableau assossiatif
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-require_once('close.php');
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
