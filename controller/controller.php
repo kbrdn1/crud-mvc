@@ -60,3 +60,17 @@ function editProduct()
     }
     require("./view/edit.php");
 }
+
+function deleteProduct()
+{
+    if ($_GET["id"]) {
+        if (isset($_GET["id"]) && !empty($_GET["id"])) {
+            $model = new Model();
+            $model->setId(strip_tags($_GET["id"]));
+            $model->delete();
+
+            header('Location: index.php');
+        }
+    }
+    require("./view/list.php");
+}
