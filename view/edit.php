@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +28,7 @@
                 <input class="col-2 rounded" type="number" id="nombre" name="nombre" placeholder="Quantité" value="<?= $result['nombre'] ?>">
                 <input class="col-2 btn-success rounded-pill" type="submit" name="send" value="Envoyer">
             </form>
-            <a href="index"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
+            <a href="./index.php?action=index"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
         </div>
     </div>
 

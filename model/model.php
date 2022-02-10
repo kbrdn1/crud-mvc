@@ -154,4 +154,25 @@ class Model
 
         return $result = $query->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function delete()
+    {
+        // On démarre uune session
+        session_start();
+
+        // On inclut la connexion à la base
+        $db = $this->connect();
+
+        $id = $this->id;
+
+        $sql = 'DELETE FROM produit WHERE id=' . $id;
+
+        $query = $db->prepare($sql);
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $query->execute();
+
+        $_SESSION['message'] = "Produit Supprimé";
+    }
 }

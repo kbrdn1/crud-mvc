@@ -28,7 +28,7 @@
                 <input class="col-2 rounded" type="number" id="nombre" name="nombre" placeholder="Quantité">
                 <input class="col-2 btn-success rounded-pill" type="submit" name="send" value="Envoyer">
             </form>
-            <a href="/php/produit/index.php"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
+            <a href="./index.php?action=index"><button class="btn-danger m-1 rounded-pill ms-3">Retour</button></a>
         </div>
     </div>
 
