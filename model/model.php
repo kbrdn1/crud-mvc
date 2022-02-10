@@ -106,4 +106,52 @@ class Model
 
         header('Location: index.php');
     }
+
+    public function edit()
+    {
+            // On démarre uune session
+            session_start();
+
+            // On inclut la connexion à la base
+            $db = $this->connect();
+
+            // On nettoie les données
+            $id = $this->id;
+            $produit = $this->produit;
+            $prix = $this->prix;
+            $nombre = $this->nombre;
+
+            $sql = "UPDATE `produit` SET `produit` = '" . $produit . "', `prix` = '" . $prix . "',`nombre` = '" . $nombre . "' WHERE id=" . $id;
+
+            $query = $db->prepare($sql);
+
+            $query->bindValue(':produit', $produit, PDO::PARAM_STR);
+            $query->bindValue(':prix', strval($prix), PDO::PARAM_STR);
+            $query->bindValue(':nombre', $nombre, PDO::PARAM_INT);
+
+            $query->execute();
+
+            $_SESSION['message'] = "Produit Modifié";
+    }
+
+    public function getEdit()
+    {
+        // On démarre uune session
+        session_start();
+
+        // On inclut la connexion à la base
+        $db = $this->connect();
+
+        $id = $this->id;
+
+        $sql = "SELECT * FROM `produit` WHERE id ='" . $id . "'";
+
+        $query = $db->prepare($sql);
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $query->execute();
+
+        return $result = $query->fetch(PDO::FETCH_ASSOC);
+    }
 }

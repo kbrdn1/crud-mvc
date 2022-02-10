@@ -39,7 +39,7 @@
                         <td class="border-bottom border-2 border-end-0 border-start-0"><?= $produit['produit'] ?></td>
                         <td style="background-color: #eee;" class="border-bottom border-2 border-end-0 border-start-0"><?= $produit['prix'] ?></td>
                         <td class="border-bottom border-2 border-end-0 border-start-0"> <?= $produit['nombre'] ?></td>
-                        <td style="background-color: #eee;" class="border-bottom border-2 border-end-0 border-start-0"><a href="edit.php?id=<?= $produit['id'] ?>"><button class="btn-warning rounded-pill">edit</button></a></td>
+                        <td style="background-color: #eee;" class="border-bottom border-2 border-end-0 border-start-0"><a href="index.php?action=edit&amp;id=<?= $produit['id'] ?>"><button class="btn-warning rounded-pill">edit</button></a></td>
                         <td class="border-bottom border-2 border-end-0 border-start-0"><a href="delete.php?id=<?= $produit['id'] ?>"><button class="btn-danger rounded-pill">delete</button></a></td>
                     </tr>
                 <?php
