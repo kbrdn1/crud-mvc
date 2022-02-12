@@ -13,6 +13,8 @@
 <body class="bg-dark d-flex justify-content-center">
     <div class="col-6 text-center">
         <?php
+
+        // Message de success
         if (isset($_SESSION['message']) && !empty($_SESSION['message'])) {
             echo '<div class="alert alert-success" role="alert">' . $_SESSION["message"] . '</div>';
             $_SESSION['message'] = "";
@@ -31,7 +33,8 @@
             </thead>
             <tbody>
                 <?php
-                // On boucle sur la variable result
+                
+                // On boucle sur la variable produit
                 foreach ($result as $produit) {
                 ?>
                     <tr>

@@ -14,6 +14,8 @@
 
     <div class="col-6">
         <?php
+
+        // Message d'erreur
         if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
             echo '<div class="alert alert-danger" role="alert">' . $_SESSION["error"] . '</div>';
             $_SESSION['error'] = "";
